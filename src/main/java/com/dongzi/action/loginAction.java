@@ -19,6 +19,7 @@ import com.opensymphony.xwork2.ActionSupport;
 //import com.dongzi.daoimp.UserDaoImp;
 @ParentPackage("dongzi")
 @Namespace("/")
+@Action(value = "login", results = {@Result(type = "json") })
 //@Action(value = "login")
 public class loginAction extends ActionSupport implements 
 ServletRequestAware,ServletResponseAware {
@@ -39,7 +40,6 @@ ServletRequestAware,ServletResponseAware {
 		this.response=response;
 	}
 
-	@Action(value = "login", results = {@Result(type = "json") })
 	public void  login(){
 		try {
 
@@ -50,9 +50,7 @@ ServletRequestAware,ServletResponseAware {
 
 			String username=this.request.getParameter("userName");
 			String password=this.request.getParameter("password");
-			//UserDaoImp userDaoImp=new UserDaoImp();
-			//boolean b=userDaoImp.login(username,password);
-			//if (b)
+
 			if(username != null)
 			{
 				if(username.equals("kevin"))
@@ -78,10 +76,6 @@ ServletRequestAware,ServletResponseAware {
 			e.printStackTrace();
 		}
 
-	}
-
-	public String userLogin() {
-		return "userLogin";
 	}
 
 }
